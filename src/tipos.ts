@@ -10,7 +10,7 @@ export const CATEGORIAS: readonly categoria[] = [
 //Aqui array para armazenar as categorias das despesas, que são as mesmas do union type acima.
 // "readonly categoria[]" diz que o array não pode ser alterado
 
-export interface despesa{//interface "contrato"/"regras" para definir o que contem em despesa
+export interface Despesa{//interface "contrato"/"regras" para definir o que contem em despesa
     readonly id: string; // "readonly" indica que o campo não pode ser alterado depois de criado
     descricao: string; //descrição da despesa, campo obrigatório
     valor: number; //valor (numérico) da despesa, campo obrigatório
