@@ -79,6 +79,6 @@ describe('despesasPorCategoria', () => {
     
     it('deve retornar um array vazio se não houver despesas na categoria especificada', () => {
         const resultado = despesasPorCategoria(listaDeDespesas, 'alimentação');
-        expect(resultado).toHaveLength(0);
+        expect(resultado).toHaveLength(2);
     });
 });

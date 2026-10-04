@@ -19,5 +19,5 @@ export function totalGasto(despesas: Despesa[]): number {
 }
 
 export function despesasPorCategoria(despesas: Despesa[], categoria: string): Despesa[] {
-    throw new Error('Função não implementada');
+    return despesas.filter(despesa => despesa.categoria === categoria);
 }
