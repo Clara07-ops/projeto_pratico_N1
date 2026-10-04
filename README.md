@@ -6,15 +6,15 @@ O projeto contém TypeScript básico, funções e módulos, arrays/matrizes/stri
 ---
 ## Como instalar, testar e rodar o projeto
 ### Instalar as dependencias
-npm init -y - criar o arquivo principal do projeto o package.json
-npm install -D typescript @types/node tsx - instala as ferramentas do TypeScript
-npm test - para rodar os teste com Vitest
-npx tsx src/inidex.ts para executar o programa principal
+npm init -y - criar o arquivo principal do projeto o package.json<br>
+npm install -D typescript @types/node tsx - instala as ferramentas do TypeScript<br>
+npm test - para rodar os teste com Vitest<br>
+npx tsx src/inidex.ts para executar o programa principal<br>
 ---
 ## Arquivos para configuração
-package.json: define os metadados, "dados sobre dados", do projeto, as dependências como o TypeScript e o Vitest.
-tsconfig.json: configura o ompilador do TypeScript, definindo as regras de checagem estática de tipos, versão e diretório de saída. Usei nesse projeto somente as essênciais.
-.gitignore: diz quais são as pastas e arquivos não devem ser rastreados pelo Git.
+package.json: define os metadados, "dados sobre dados", do projeto, as dependências como o TypeScript e o Vitest.<br>
+tsconfig.json: configura o ompilador do TypeScript, definindo as regras de checagem estática de tipos, versão e diretório de saída. Usei nesse projeto somente as essênciais.<br>
+.gitignore: diz quais são as pastas e arquivos não devem ser rastreados pelo Git.<br>
 ---
 ## Registro do uso da Inteligencia Artificial
 | Função | Descrição da Ajuda |
