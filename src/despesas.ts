@@ -13,3 +13,7 @@ export function adicionarDespesa(despesas: Despesa[], novaDespesa: Despesa): Des
 export function removerDespesa(despesas: Despesa[], id: string): Despesa[] {
     return despesas.filter(despesa => despesa.id !== id); // Retorna um novo array com itens com id diferente do passado
 }
+
+export function totalGasto(despesas: Despesa[]): number {
+    return despesas.reduce((total, despesa) => total + despesa.valor, 0); 
+}

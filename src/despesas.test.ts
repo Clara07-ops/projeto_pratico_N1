@@ -1,5 +1,5 @@
 import {describe, it, expect} from 'vitest';
-import {adicionarDespesa, removerDespesa} from './despesas.js';
+import {adicionarDespesa, removerDespesa, totalGasto} from './despesas.js';
 import {Despesa} from './tipos.js';
 //trazendo as funções e interface necessária para os testes
 
@@ -49,5 +49,17 @@ describe('removerDespesa', () => {
         const resultado = removerDespesa(listaDeDespesas, '3');
         expect(resultado).toHaveLength(2);
         expect(resultado).toEqual(listaDeDespesas); // Verifica se o array original não foi alterado
+    });
+});
+
+describe('totalGasto', () => {
+    it('deve calcular o total gasto', () => {
+        const listaDeDespesas: Despesa[] = [
+            { id: '1', descricao: 'Almoço', valor: 20.5, categoria: 'alimentação', mes: 5 },
+            { id: '2', descricao: 'Transporte', valor: 15, categoria: 'transporte', mes: 5 },
+            { id: '3', descricao: 'Lazer', valor: 30, categoria: 'lazer', mes: 5 },
+        ];
+        const resultado = totalGasto(listaDeDespesas);
+        expect(resultado).toBe(65.5); // Verifica se o total gasto está correto
     });
 });
