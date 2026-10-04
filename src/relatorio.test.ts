@@ -28,11 +28,11 @@ describe('matrizCategoriaMes', () => {
     });
 });
 
-describe('relatorio', () => {
+describe('formatarRelatorio', () => {
     it('deve retornar o relatório correto em formato de string', () => {
-        const resultado = relatorio(listaDeDespesas);
-        expect(resultado).toContain('Relatório de Despesas');
-        expect(resultado).toContain('Total gasto');
+      const resultado = relatorio(listaDeDespesas);
+      expect(resultado).toContain('RELATÓRIO');
+      expect(resultado).toContain('TOTAL GERAL');
         });
     });
 });
