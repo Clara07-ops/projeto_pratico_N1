@@ -1,6 +1,7 @@
 import {describe, it, expect} from 'vitest';
-import {adicionarDespesa, despesasPorCategoria, removerDespesa, totalGasto} from './despesas.js';
+import {adicionarDespesa, despesasPorCategoria, removerDespesa, totalGasto, maiorDespesa} from './despesas.js';
 import {Despesa} from './tipos.js';
+
 //trazendo as funções e interface necessária para os testes
 
 describe('adicionarDespesa', () => { //aqui é uma despesa padrão, base para os teste, é para evitar ter que ficar escrevendo de novo em cada teste
@@ -80,5 +81,21 @@ describe('despesasPorCategoria', () => {
     it('deve retornar um array vazio se não houver despesas na categoria especificada', () => {
         const resultado = despesasPorCategoria(listaDeDespesas, 'alimentação');
         expect(resultado).toHaveLength(2);
+    });
+});
+
+describe('maiorDespesa', () => {
+    it('deve retornar undefined se o array de despesas estiver vazio', () => {
+        const resultado = maiorDespesa([]);
+        expect(resultado).toBeUndefined();
+    });
+    it('deve retornar a maior despesa do array', () => {
+        const listaDeDespesas: Despesa[] = [
+            { id: '1', descricao: 'Almoço', valor: 20.5, categoria: 'alimentação', mes: 5 },
+            { id: '2', descricao: 'Transporte', valor: 50, categoria: 'transporte', mes: 5 },
+            { id: '3', descricao: 'Jantar', valor: 30, categoria: 'alimentação', mes: 5 },
+        ];
+        const resultado = maiorDespesa(listaDeDespesas);
+        expect(resultado).toEqual({ id: '2', descricao: 'Transporte', valor: 50, categoria: 'transporte', mes: 5 });
     });
 });
