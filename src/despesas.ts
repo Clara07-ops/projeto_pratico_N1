@@ -17,3 +17,7 @@ export function removerDespesa(despesas: Despesa[], id: string): Despesa[] {
 export function totalGasto(despesas: Despesa[]): number {
     return despesas.reduce((total, despesa) => total + despesa.valor, 0); 
 }
+
+export function despesasPorCategoria(despesas: Despesa[], categoria: string): Despesa[] {
+    throw new Error('Função não implementada');
+}

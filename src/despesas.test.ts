@@ -1,5 +1,5 @@
 import {describe, it, expect} from 'vitest';
-import {adicionarDespesa, removerDespesa, totalGasto} from './despesas.js';
+import {adicionarDespesa, despesasPorCategoria, removerDespesa, totalGasto} from './despesas.js';
 import {Despesa} from './tipos.js';
 //trazendo as funções e interface necessária para os testes
 
@@ -61,5 +61,24 @@ describe('totalGasto', () => {
         ];
         const resultado = totalGasto(listaDeDespesas);
         expect(resultado).toBe(65.5); // Verifica se o total gasto está correto
+    });
+});
+
+describe('despesasPorCategoria', () => {
+        const listaDeDespesas: Despesa[] = [
+            { id: '1', descricao: 'Almoço', valor: 20.5, categoria: 'alimentação', mes: 5 },
+            { id: '2', descricao: 'Transporte', valor: 15, categoria: 'transporte', mes: 5 },
+            { id: '3', descricao: 'Jantar', valor: 30, categoria: 'alimentação', mes: 5 },
+        ];
+
+     it('deve retornar as despesas de uma categoria específica', () => {
+        const resultado = despesasPorCategoria(listaDeDespesas, 'alimentação');
+        expect(resultado).toHaveLength(2);
+        expect(resultado.every(despesa => despesa.categoria === 'alimentação')).toBe(true);
+    });
+    
+    it('deve retornar um array vazio se não houver despesas na categoria especificada', () => {
+        const resultado = despesasPorCategoria(listaDeDespesas, 'alimentação');
+        expect(resultado).toHaveLength(0);
     });
 });
