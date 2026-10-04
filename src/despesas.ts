@@ -23,5 +23,8 @@ export function despesasPorCategoria(despesas: Despesa[], categoria: string): De
 }
 
 export function maiorDespesa(despesas: Despesa[]): Despesa | undefined {
-    throw new Error('Função não implementada'); 
+    if (despesas.length === 0) {
+        return undefined;
+    }
+    return despesas.reduce((maior, despesa) => despesa.valor > maior.valor ? despesa : maior);
 }
