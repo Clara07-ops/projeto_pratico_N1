@@ -1,5 +1,5 @@
 import {describe, it, expect} from 'vitest';
-import {adicionarDespesa} from './despesas.js';
+import {adicionarDespesa, removerDespesa} from './despesas.js';
 import {Despesa} from './tipos.js';
 //trazendo as funções e interface necessária para os testes
 
@@ -29,5 +29,25 @@ describe('adicionarDespesa', () => { //aqui é uma despesa padrão, base para os
     it('deve dar erro se o mês for menor que 1 ou maior que 12', () => {
         const despesaInvalida: Despesa = {...despesaValida, mes: 13};
         expect(() => adicionarDespesa([], despesaInvalida)).toThrow('Mês da despesa deve ser entre 1 e 12');
+    });
+});
+
+describe('removerDespesa', () => {
+    const listaDeDespesas: Despesa[] = [
+        { id: '1', descricao: 'Almoço', valor: 20.5, categoria: 'alimentação', mes: 5 },
+        { id: '2', descricao: 'Transporte', valor: 15, categoria: 'transporte', mes: 5 },
+    ];
+
+    it('deve remover uma despesa existente pelo id e retornar o array atualizado', () => {
+        const resultado = removerDespesa(listaDeDespesas, '1');
+        expect(resultado).toHaveLength(1);
+        expect(resultado[0].id).toBe('2');
+        expect(listaDeDespesas.length).toBe(2); // Verifica se o array original não foi alterado
+    });
+    
+    it('deve retornar o array original se o id não for identificado', () => {
+        const resultado = removerDespesa(listaDeDespesas, '3');
+        expect(resultado).toHaveLength(2);
+        expect(resultado).toEqual(listaDeDespesas); // Verifica se o array original não foi alterado
     });
 });
