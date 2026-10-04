@@ -11,5 +11,5 @@ export function adicionarDespesa(despesas: Despesa[], novaDespesa: Despesa): Des
 }
 
 export function removerDespesa(despesas: Despesa[], id: string): Despesa[] {
-   throw new Error('Função não implementada');
+    return despesas.filter(despesa => despesa.id !== id); // Retorna um novo array com itens com id diferente do passado
 }
